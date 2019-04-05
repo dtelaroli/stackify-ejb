@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>
+				%highlight(%d{ISO8601}) %red(%-5level) %yellow([%c{1}:%L]) %msg%n%throwable
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="STACKIFY" class="com.stackify.log.logback.StackifyLogAppender">
+		<apiKey>8Nm5Ej4Ja1Do1Yb0Pr6Ud0Gd4Js0Fo4Jv4Bk6My</apiKey>
+		<application>STACKIFYEJB</application>
+		<environment>dev</environment>
+	</appender>
+	
+	<root level="info">
+		<appender-ref ref="STACKIFY" />
+		<appender-ref ref="Console" />
+	</root>
+	
+	<logger name="com.stackify" level="debug"/>
+</configuration>
